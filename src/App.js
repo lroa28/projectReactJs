@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Titulo from './components/Titulo/Titulo';
+import NavBar from './components/NavBar/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={ {backgroundColor:'red'} }>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -17,7 +21,9 @@ function App() {
         >
           Learn React
         </a>
+        <NavBar/>
       </header>
+      <Titulo/>
     </div>
   );
 }
