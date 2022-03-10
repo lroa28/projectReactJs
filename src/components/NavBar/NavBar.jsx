@@ -1,4 +1,4 @@
-// import { Navbar, NavDropdown } from "react-bootstrap" // trae toda la librería 
+// import { Navbar, NavDropdown } from "react-bootstrap" // Este import trae toda la librería 
 // No traemos toda la libreria de bootstrap sino que para ciertos componentes:
 import Navbar  from "react-bootstrap/Navbar"
 import Container  from "react-bootstrap/Container"
