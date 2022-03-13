@@ -1,9 +1,7 @@
-//import logo from './logo.svg';
-//import Titulo from './components/Titulo/Titulo';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './Container/ItemListContainer';
+import 'bootstrap/dist/css/bootstrap.min.css'; //en el video enviado como ejemplo lo agregaron a index.js
+import './App.css'
+import NavBar from './components/NavBar/NavBar'
+import ItemListContainer from './container/Item/ItemListContainer'
 
 
 function App() {
@@ -14,6 +12,7 @@ function App() {
       <ItemListContainer greeting='Hello welcome e-bags _luk_c'/>
     </div>
     </>
+    
   );
 }
 

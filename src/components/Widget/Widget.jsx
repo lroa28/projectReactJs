@@ -1,12 +1,12 @@
-//import './App.css'; No lo toma
 import React from 'react'
-import cart from '../../Assets/img/cart.jpeg'
+import cart from '../../assets/img/cart.jpeg'
+import '../../components/Styles/Widget.css'
 
 function Widget() {
   return (
     <>
     <div>
-      <img src={cart} style={{ height: 50, width: 50 }} className="img_carrito-header" alt="carrito" />
+      <img src={cart} className="img_carrito-header float-right" alt="carrito" />
     </div>
     </>
   )

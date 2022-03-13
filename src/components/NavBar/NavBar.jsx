@@ -32,7 +32,7 @@ function NavBar() {
         <Nav className="justify-content-end flex-grow-1 pe-3">
           <Nav.Link href="#action1">Home</Nav.Link>
           <Nav.Link href="#action2">Products</Nav.Link>
-          <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
+          <NavDropdown title="Courses" id="offcanvasNavbarDropdown">
             <NavDropdown.Item href="#action3">Knitting</NavDropdown.Item>
             <NavDropdown.Item href="#action4">Mold making</NavDropdown.Item>
             <NavDropdown.Item href="#action5">Use of Straight and Overlock Machines</NavDropdown.Item>
