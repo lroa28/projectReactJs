@@ -1,6 +1,8 @@
 // import { Navbar, NavDropdown } from "react-bootstrap" // Este import trae toda la librería 
+
 // No traemos toda la libreria de bootstrap sino que para ciertos componentes:
 import Navbar  from "react-bootstrap/Navbar"
+import logo from "./assets/img/log.png"
 import Container  from "react-bootstrap/Container"
 import Form  from "react-bootstrap/Form"
 import Nav  from "react-bootstrap/Nav"
@@ -15,7 +17,7 @@ function NavBar() {
     <>
   <Navbar bg="light" expand={false}>
   <Container fluid>
-    <Navbar.Brand href="#">_luk_c</Navbar.Brand>
+    <Navbar.Brand href="#" img src={ logo } alt="logo">_luk_c</Navbar.Brand>
     <Nav.Link eventKey={2} href="#memes">
       <Widget />
     </Nav.Link>

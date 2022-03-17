@@ -1,18 +1,20 @@
+import '../../App.css'
 import { useState, useEffect } from 'react'
-import './App.css'
-import GetFetch from '../helpers/GetFetch.js'
-import ItemList from '../container/ItemList.jsx'
+import { GetFetch } from './helpers/GetFetch.js'
+import { ItemList } from './container/Item/ItemList.jsx'
+import { ItemCount } from './container/Item/ItemCount.jsx'
+
+const saludo = "Welcome e-bags _luk_c";
 
 const ItemListContainer = () => {
-  const saludo = "Welcome e-bags _luk_c";
-  const [dishes, setDishes] = useState([{}]);
-  const [bool, setBoolean] = useState(true);
+  const [ clothes, setClothes] = useState(); //Para guardar los datos de manera persistente
+  const [ bool, setBoolean] = useState(true); //Para guardar los datos de manera persistente
 
   useEffect(() => {
       GetFetch()
-          .then((response) => setDishes(() => response))
-          .catch((err) => console.log(err))
-          .finally(() => setBoolean(() => false))
+      .then((response) => setClothes(() => response))
+      .catch((err) => console.log(err))
+      .finally(() => setBoolean(() => false))
   }, []);
 
   if (bool) {
@@ -24,16 +26,16 @@ const ItemListContainer = () => {
       return (
           <div>
               <div className="flex-container">
-                  <Greeting saludo={saludo} />
+                  <p> {saludo} </p>
               </div>
               <div className="flex-container-card py-10">
-                  <ItemList item={dishes} />
+                  <ItemList item={clothes} />
+                  <ItemCount initial={1} stock={10} onAdd= { onAdd } />
               </div>
           </div>
       );
   }
 
 }
-
 
 export default ItemListContainer

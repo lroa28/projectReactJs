@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import getItem from '../helpers/getItem.js';
+import GetItem from '../helpers/GetItem.js';
 import ItemDetail from '../components/ItemDetail.jsx';
 
 const ItemDetailContainer = ({identificacion}) => {
     const [bool, setBoolean] = useState(true);
-    const [dish, setOneDish] = useState();
+    const [cloth, setOneDish] = useState();
 
     useEffect(() => {
-        getItem(identificacion)
+        GetItem(identificacion)
             .then((response) => setOneDish(() => response))
             .catch((err) => console.log(err))
             .finally(() => setBoolean(() => false))
@@ -22,7 +22,7 @@ const ItemDetailContainer = ({identificacion}) => {
     } else {
         return (
             <>
-                <ItemDetail item = {dish} />
+                <ItemDetail item = {cloth} />
             </>
         );
     }
