@@ -1,5 +1,5 @@
-import ItemDetailContainer from '../container/Item/ItemDetailContainer';
-import ItemCount from '../container/Item/ItemCount.jsx'
+import ItemDetailContainer from '../../container/Item/ItemDetailContainer';
+import ItemCount from '../../container/Item/ItemCount'
 
 
 const ItemCard = ({ item }) => {

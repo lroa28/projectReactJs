@@ -1,5 +1,6 @@
-import '../App.css'
+import '../../App.css'
 import Item from './container/Item/Item.jxs'
+
 
 const ItemList = ({item}) => {
         return (<div className="flex-container-card py-10">

@@ -1,8 +1,8 @@
-import '../../App.css'
 import { useState, useEffect } from 'react'
-import { GetFetch } from './helpers/GetFetch.js'
-import { ItemList } from './container/Item/ItemList.jsx'
-import { ItemCount } from './container/Item/ItemCount.jsx'
+import '../../App.css'
+import { GetFetch } from '../../helpers/GetFetch.js'
+import { ItemList } from '../../container/Item/ItemList.jsx'
+import { ItemCount } from '../../container/Item/ItemCount.jsx'
 
 const saludo = "Welcome e-bags _luk_c";
 
@@ -38,4 +38,4 @@ const ItemListContainer = () => {
 
 }
 
-export default ItemListContainer
+export default ItemListContainer;
