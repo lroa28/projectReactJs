@@ -1,5 +1,5 @@
-import cuellos from '../assets/Cuellos2.jpg'
-import buzo from '../assets/CanguroAndre.jpg'
+import cuellos from '../assets/img/Cuellos2.jpg'
+import buzo from '../assets/img/CanguroAndre.jpg'
 
 const clothes = [
     {

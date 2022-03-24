@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import '../../App.css'
-import { ItemCount } from '../../container/Item/ItemCount.jsx'
+
 
 const ItemCount = ({ initial, stock, onAdd }) => {
     const [ count, setCount ] = useState(initial)
@@ -13,20 +13,19 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     }
     const restar = () => {
         if (count > initial) {
-            setCount( count - 1 )
+            setCount(count - 1)
         }
     }
-
     const agregar = () => {
-        onAdd( count )
+        onAdd (count)
     }
     
     return (
         <div>
             <button onClick={restar}> - </button>
             <label> { count } </label>
-            <button onClick={sumar}> + </button><br />
-            <button onClick={ agregar }>Add to Cart</button>
+            <button onClick={sumar}> + </button><br/>
+            <button onClick={agregar}>Add to Cart</button>
         </div>
     )
 }

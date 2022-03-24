@@ -1,11 +1,14 @@
-import ItemDetailContainer from '../../container/Item/ItemDetailContainer';
-import ItemCount from '../../container/Item/ItemCount'
+import '../../App.css'
+import { Link } from "react-router-dom"
+import ItemDetailContainer from "../../container/Item/ItemDetailContainer.jsx"
+import ItemCount from "../../container/Item/ItemCount.jsx"
 
 
 const ItemCard = ({ item }) => {
   let order = 0;
   let identificacion = item.id;
   return (
+    <Link to={`detalle/ ${item.id}`}>
     <div className="card m-2 p-0 ">
         <div className="card-header centrar">
             <ItemDetailContainer identificacion = {identificacion}/>
@@ -16,8 +19,10 @@ const ItemCard = ({ item }) => {
         <div className="card-footer centrar m-0 p-0">
             <h3>Horario de atención</h3>
             <h3>de 09:00 a 18:00 horas</h3>
-      </div>
-    </div>);
+        </div>
+    </div>
+    </Link>
+    );
 }
 
 export default ItemCard;

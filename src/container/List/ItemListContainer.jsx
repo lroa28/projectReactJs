@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
-import '../../App.css'
-import { GetFetch } from '../../helpers/GetFetch.js'
-import { ItemList } from '../../container/Item/ItemList.jsx'
-import { ItemCount } from '../../container/Item/ItemCount.jsx'
+import "../../App.css"
+import  GetFetch  from "../../helpers/GetFetch.js"
+import  ItemList  from "../../container/List/ItemList.jsx"
+import  ItemCount  from "../../container/Item/ItemCount.jsx"
 
-const saludo = "Welcome e-bags _luk_c";
 
-const ItemListContainer = () => {
+const ItemListContainer = (item) => {
+
+   const saludo = "Welcome e-bags _luk_c";
   const [ clothes, setClothes] = useState(); //Para guardar los datos de manera persistente
   const [ bool, setBoolean] = useState(true); //Para guardar los datos de manera persistente
 
@@ -16,6 +17,10 @@ const ItemListContainer = () => {
       .catch((err) => console.log(err))
       .finally(() => setBoolean(() => false))
   }, []);
+
+  const onAdd = (cant) => {
+    console.log(cant)
+}
 
   if (bool) {
       return (
