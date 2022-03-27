@@ -1,3 +1,29 @@
+# Lic. en sistemas de información, estudiante full stack en "CoderHouse" y emprendedora de textil.
+## Esta es mi primer página del curso Desarrollo Web, año 2021-2022.
+
+ 📢Sitio web que busca mostrar mi Emprendimiento de Diseño textil y de modas, próximamente podrás realizar compras de prendas en "_luk_c"
+
+### Tecnologías utilizadas 🛠️
+
+_Herramientas y tecnologías utilizadas._
+
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white&labelColor=101010)](#)
+[![Html5 Follow](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white&labelColor=101010)](#)
+[![css3 Follow](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white&labelColor=101010)](#)
+[![AJAX](https://img.shields.io/badge/AJAX-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white&labelColor=101010)](#)
+[![jQuery](https://img.shields.io/badge/jQuery-1572B6?style=for-the-badge&logo=jquery&logoColor=white&labelColor=101010)](#)
+
+CoderHouse E-Commerce
+"lukc-ecarrito-npx" es una aplicación creada en el curso de CoderHouse desarrollo fullstack.
+La aplicación esta creada exclusivamente en ReactJS.
+La aplicacion cuenta con los siguientes modulos:
+
+Listado de productos obtenidos de una API creada exclusivamente para la aplicación.
+Visualizacion de detalles de cada producto.
+Carrito de compras.
+Login (en desarrollo)
+Publicacion de nuevos productos basados en si el usuario esta logueado o no (en desarrollo)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -69,7 +95,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-Mis Redes Sociales
+## 🤓 ¡Muchas gracias por visitar mi espacio!
 
-👉 Visita mi sitio web https://lroa28.github.io/GitLROA/index.html/ 💻
-📫 Suscríbete a mi lista de correo 
+* Comenta a otros sobre este proyecto 📢.
+* Dejame tus opiniones.
+* O escribime: lucreciaroa@hotmail.com.
+
+---
+📌 [Sitio Web _luk_c ](https://lroa28.github.io/GitLROA/) 😊

@@ -5,7 +5,7 @@ import  ItemList  from "../../container/List/ItemList.jsx"
 import  ItemCount  from "../../container/Item/ItemCount.jsx"
 
 
-const ItemListContainer = (item) => {
+const ItemListContainer = () => {
 
    const saludo = "Welcome e-bags _luk_c";
   const [ clothes, setClothes] = useState(); //Para guardar los datos de manera persistente

@@ -19,7 +19,7 @@ function App() { //Componente contenedor
           <Routes>
               <Route path="/" element={ <ItemListContainer/>}/> 
               <Route path="/categoria/:id" element={ <ItemListContainer/>}/> 
-              <Route path="/detalle/:detalleId" element={ <ItemDetailContainer/>}/>  
+              <Route path="/tipo/:tipoId" element={ <ItemDetailContainer/>}/>  
               <Route path="/*" element={ <Navigate to='/'/> }/> 
               <Route path="/NotFound" element={ <Componente404/> }/> 
               <Route path="/*" element={ <Navigate to='NotFound'/> }/> 
