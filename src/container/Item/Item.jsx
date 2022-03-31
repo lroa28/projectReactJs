@@ -3,18 +3,17 @@ import { Link } from "react-router-dom"
 import ItemDetailContainer from "../../container/Item/ItemDetailContainer.jsx"
 import ItemCount from "../../container/Item/ItemCount.jsx"
 
-
-const ItemCard = ({ item }) => {
+const Item = ({ cloth }) => {
   let order = 0;
-  let identificacion = item.id;
+  let identificacion = cloth.id;
   return (
-    <Link to={`detalle/ ${item.id}`}>
+    <Link to={`detalle/ ${cloth.id}`}>
     <div className="card m-2 p-0 ">
         <div className="card-header centrar">
             <ItemDetailContainer identificacion = {identificacion}/>
         </div>
         <div className="card-body centrar">
-            <ItemCount item={item} order={order} />
+            <ItemCount cloth={cloth} order={order} />
         </div>
         <div className="card-footer centrar m-0 p-0">
             <h3>Horario de atención</h3>
@@ -25,4 +24,4 @@ const ItemCard = ({ item }) => {
     );
 }
 
-export default ItemCard;
+export default Item

@@ -1,38 +1,71 @@
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import '../../App.css'
-import GetItem from "../../helpers/GetItem.js"
 import ItemDetail from "../../container/Item/ItemDetail.jsx"
+import getFirestore from "../../firebase/config"
 //import Item from "../../container/Item/Item.jsx"
+//import { doc, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
+//import * as firestore from 'firebase/firestore'
 
 // Implementación mock invocando a getItems() y utilizando el resolver then return /* JSX que devuelva un ItemDetail (desafío 6b) */
+function ItemDetailContainer() {
 
-const ItemDetailContainer = () => {
-    const [bool, setBoolean] = useState(true);  //Para guardar los datos de manera persistente
-    const [ item, setItem ] = useState (); //Para guardar los datos de manera persistente
-    const {detalleId} = useParams () //Me almacena el valor de ItemDetailContainer que se esta seleccionando
-    console.log (detalleId)
+    const {id} = useParams();
+    const [item, setItem] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [product, setProduct] = useState({});
 
     useEffect(() => {
-        GetItem()
-            .then((response) => setItem( response.find (cloth => cloth.id === 1)))
-            .catch((err) => console.log(err))
-            .finally(() => setBoolean(() => false))
-    }, []);
+        setLoading(true);
+        const db = getFirestore();
+        const itemCollection = db.collection('items');
+        const item = itemCollection.doc(id);
 
-    if (bool) {
-        return (
-            <div className="flex-container">
-                <p>Cargando ...</p>
-            </div>)
-    } else {
-        return (
-            <>
-                <ItemDetail item = {item} />
-            </>
-        );
+        item.get()
+        .then((doc) => {
+            if(!doc.exists){
+                console.log("Item does not exist!");
+                return true;
+            }
+            setProduct({id: doc.id, ...doc.data()});
+        })
+        .catch((error) => {
+            console.log('Error searching item: ', error);
+        })
+        .finally(() => {
+            setLoading(false);
+        })
+    }, [id]);
+    
+    useEffect(() => {
+        setLoading(true);
+        fetch(`${process.env.REACT_APP_API_URL}/products/${id}`)
+        .then(response =>{
+            return response.json();
+        })
+        .then(res => {
+            setItem(res);
+            setLoading(false);
+        })
+    }, [id])
+
+    if(loading){
+        return <div className="mt-10">Loading...</div>
     }
 
+    const itemToView = () => {
+        let send = {};
+        item.message === "The product doesnt exists" ? (send = product) : (send = item)
+
+        return send;
+    }
+    
+    return (
+        <div className="mt-10">
+            
+            <ItemDetail data={itemToView()}/>
+        </div>
+    )
 }
 
-export default ItemDetailContainer;
+export default ItemDetailContainer

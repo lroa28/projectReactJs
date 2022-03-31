@@ -2,13 +2,15 @@ import '../../App.css'
 import { Link } from "react-router-dom"
 import { React , useState } from "react"
 import ItemCount from '../../container/Item/ItemCount'
-import { useCartContext } from "../../context/cartContext"
+//import CartContextProv from "../../context/cartContext"
+import useCartContextProv  from '../../context/cartContext';
 
 // Vista del detalle expandido del producto con su imagen, título, descripción y precio.
-function ItemDetail({item}) {
+function ItemDetail ({item}) {
   const [isCant, setIsCant] = useState(false)
-  const {addToCart} = useCartContext()
-  
+//const {addToCart} = useContext (CartContextProv)
+ const {addToCart} = useCartContextProv() //arrow function que puedo usar en lugar de la anterior y se importa una sola vez como import { useCartContext } from '../context/cartContext.js'; 
+
   const onAdd= (cant) => {
       console.log(cant)
       addToCart( { ...item, cantidad: cant } )

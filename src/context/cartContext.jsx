@@ -1,30 +1,66 @@
 import { createContext, useContext, useState } from "react"
 
-const CartContext = createContext([])
-export const useCartContext = () => useContext(CartContext)
+const cartContext = createContext([]) //context creado con un array vacío
+export const useCartContext = () => useContext(cartContext)
 
-function CartContextProvider({children}) {
-    const [cartList, setCartList] = useState([])
-
-    const addToCart=(item)=>{
-        /// repita duplicado 
-        setCartList( [ ...cartList, item ] )
-    }
+function CartContexProv({children}) {
+    const [cartList, setCartList] = useState([]) //hook para hacer los datos persistentes
     
-    const vaciarCarrito= () =>{
-        setCartList([])
+//    const addToCart=(item) =>{
+//        setCartList( [ ...cartList, item ] ) //me va desplegando lo que ya tenia y lo va agregando, si dejo solo item me lo pisa 
+//    }
+
+    const isInCart = (identification) => {
+        const item = cartList.find(element => element.id === identification);
+        if (item !== undefined) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    const addToCart = (item) => {
+        if (!isInCart(item.id)) {
+            setCartList([...cartList, item]); //me va desplegando lo que ya tenia y lo va agregando, si dejo solo item me lo pisa 
+        }
+        else {
+            cartList.cantidad += item.cantidad;
+            alert("Item ya esta seleccionado")
+            setCartList([...cartList])
+        }
+    }
+
+    const removeFromCart = (identification) => {
+        const item = cartList.find(element => element.id === identification);
+        if (item) {
+            const index = cartList.indexOf(item)
+            cartList.splice(index, 1);
+            alert("El item fue removido")
+            setCartList([...cartList])
+        }
+    }
+
+    const vaciarCarrito = (item) => {
+        setCartList([]);
+    }
+
+    const finalizarCompra = () => {
+        setCartList([]);
+    }
 
     return (
-        <CartContext.Provider value={{ 
+        <cartContext.Provider value={{ //los puedo usar en cualq lugar de mi app
             cartList,
+            setCartList,
             addToCart,
-            vaciarCarrito
+            vaciarCarrito,
+            isInCart,
+            removeFromCart,
+            finalizarCompra
         }}>
             { children }
-        </CartContext.Provider>
+        </cartContext.Provider>
     )
-}
+};
 
-export default CartContextProvider
+export default CartContexProv;

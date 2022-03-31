@@ -1,5 +1,5 @@
 # Lic. en sistemas de información, estudiante full stack en "CoderHouse" y emprendedora de textil.
-## Esta es mi primer página del curso Desarrollo Web, año 2021-2022.
+## Esta es mi primer página del curso React Js, año 2022.
 
  📢Sitio web que busca mostrar mi Emprendimiento de Diseño textil y de modas, próximamente podrás realizar compras de prendas en "_luk_c"
 
@@ -13,7 +13,7 @@ _Herramientas y tecnologías utilizadas._
 [![AJAX](https://img.shields.io/badge/AJAX-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white&labelColor=101010)](#)
 [![jQuery](https://img.shields.io/badge/jQuery-1572B6?style=for-the-badge&logo=jquery&logoColor=white&labelColor=101010)](#)
 
-CoderHouse E-Commerce
+##CoderHouse E-Commerce
 "lukc-ecarrito-npx" es una aplicación creada en el curso de CoderHouse desarrollo fullstack.
 La aplicación esta creada exclusivamente en ReactJS.
 La aplicacion cuenta con los siguientes modulos:
