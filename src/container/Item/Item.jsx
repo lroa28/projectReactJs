@@ -13,7 +13,7 @@ const Item = ({ cloth }) => {
             <ItemDetailContainer identificacion = {identificacion}/>
         </div>
         <div className="card-body centrar">
-            <ItemCount cloth={cloth} order={order} />
+            <ItemCount stock={ 10 } initial={ 1 } cloth={cloth} order={order} />
         </div>
         <div className="card-footer centrar m-0 p-0">
             <h3>Horario de atención</h3>

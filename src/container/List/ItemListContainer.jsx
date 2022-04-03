@@ -4,7 +4,8 @@ import "../../App.css"
 //import  GetFetch  from "../../helpers/GetFetch.js"
 import  ItemList  from "../../container/List/ItemList.jsx"
 import  ItemCount  from "../../container/Item/ItemCount.jsx"
-import * as firestore from 'firebase/firestore'
+//import * as firestore from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 
 const ItemListContainer = () => {
    const saludo = "Welcome e-bags _luk_c";
@@ -16,12 +17,12 @@ const ItemListContainer = () => {
     //useEffect(() => {
     //if (id) {
     //    GetFetch // simulacion a un llamado a una api 
-    //    .then((response) => setClothes(() => response))
+    //    .then((data) => setClothes(() => data))
     //    .catch((err) => console.log (err))
     //    .finally(() => setBoolean(false))
     //} else {
     //    GetFetch // simulacion a un llamado a una api        
-    //    .then(resp => setProds(resp))
+    //    .then(data => setProds(data))
     //    .catch(err => console.log(err))
     //    .finally(()=> setLoading(false))     
     //}, [id])
@@ -37,14 +38,14 @@ const ItemListContainer = () => {
 
     // traer productos filtrados por tipo
     useEffect(()=> {
-        const db = firestore.getFirestore()
-        const queryCollection =  firestore.collection(db, 'items' )
-        const queryFilter = firestore.query(queryCollection, 
-            firestore.where('tipo','==','buzo'), 
+        const db = getFirestore()
+        const queryCollection =  collection(db, 'items' )
+        const queryFilter = query(queryCollection, 
+            where('tipo','==','buzo'), 
             //where('price','>=', 1000),
-            firestore.limit(1) 
+            //limit(1) 
         )
-        firestore.getDocs(queryFilter)
+        getDocs(queryFilter)
         .then(resp => setClothes( resp.docs.map(items =>( {id: items.id, ...items.data()}) ) ) )
         .catch(err => console.log(err))
         .finally(()=> setBoolean(false))   

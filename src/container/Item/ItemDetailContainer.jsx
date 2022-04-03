@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import '../../App.css'
 import ItemDetail from "../../container/Item/ItemDetail.jsx"
-import getFirestore from "../../firebase/config"
-//import Item from "../../container/Item/Item.jsx"
-//import { doc, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
-//import * as firestore from 'firebase/firestore'
+import { getFirestore } from 'firebase/firestore'
+
 
 // Implementación mock invocando a getItems() y utilizando el resolver then return /* JSX que devuelva un ItemDetail (desafío 6b) */
 function ItemDetailContainer() {

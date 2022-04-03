@@ -17,8 +17,7 @@ function App() { //Componente contenedor
       <BrowserRouter>
       <CartContextProv>
         <div className="App border border-danger border-3">
-          <NavBar/>
-          <ItemListContainer />
+          <NavBar/>          
           <Routes>
               <Route path="/" element={ <ItemListContainer/>}/> 
               <Route path="/categoria/:id" element={ <ItemListContainer/>}/> 

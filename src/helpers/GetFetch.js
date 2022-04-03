@@ -14,9 +14,10 @@ const clothes = [
         imagen: "https://firebasestorage.googleapis.com/v0/b/lukc-ecarrito-npx.appspot.com/o/canguroNegro.jpg?alt=media&token=c0043c2e-c440-4dca-a474-8e3ca5824b00",        
         precio: 3000,
     },   
-]
+];
 
-export const GetFetch = new Promise((resolve, reject)=>{
+const GetFetch = new Promise((resolve, reject)=>{
+
     let condition = true
     if (condition) {
         setTimeout(() => {
@@ -27,15 +28,14 @@ export const GetFetch = new Promise((resolve, reject)=>{
     }
 })
 
-
-export default GetFetch;
+export default GetFetch
 
 //Otra opcion de enviar la promesa:
 //const getFetch = () => {
 //    return (
 //        new Promise(function (resolve, reject) {
 //            setTimeout(function () { 
-//                resolve(platos);                
+//                resolve(clothes);                
 //            }, 2000);
 //        })
 //    )
