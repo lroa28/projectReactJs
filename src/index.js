@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import {getFirestoreApp} from "./firebase/config"
+import {getFirestoreApp} from './firebase/config' //posee las funcionalidades del API key, traer entre llaves.
+import reportWebVitals from './reportWebVitals'
 //import 'bootstrap/dist/css/bootstrap.min.css'
 
-//reportWebVitals()
+reportWebVitals()
 getFirestoreApp()
 
 ReactDOM.render(

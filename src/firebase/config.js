@@ -24,10 +24,3 @@ const app = initializeApp(firebaseConfig);
 export const getFirestoreApp = () => {
         return app
 }
-
-//export function getFirebase() {
-//  return app;
-//}
-//export function getFirestore(){
-//  return firebase.firestore(app);
-//}

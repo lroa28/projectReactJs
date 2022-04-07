@@ -10,13 +10,12 @@ import Componente404 from "./components/Componente404/Componente404"
 import CartContextProv from "./context/cartContext"
 
 const ItemListContainer = lazy (() => import ('./container/List/ItemListContainer')) //Const que solo lo importa cuando lo uso
-
 function App() { //Componente contenedor
   return (
     <Suspense fallback={<h1>Cargando ...</h1>}>
       <BrowserRouter>
       <CartContextProv>
-        <div className="App border border-danger border-3">
+        <div className="App">
           <NavBar/>          
           <Routes>
               <Route path="/" element={ <ItemListContainer/>}/> 
