@@ -1,13 +1,15 @@
-import { lazy, Suspense } from 'react' //Importación carga perezosa
+import { lazy } from 'react' 
+import { Suspense } from 'react' //Importación carga perezosa
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'; //En el video enviado como ejemplo lo agregaron a index.js
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
-//import ItemListContainer from './container/List/ItemListContainer'
-import ItemDetailContainer from "./container/Item/ItemDetailContainer.jsx"
+//import ItemListContainer from "./container/List/ItemListContainer"
+import ItemDetailContainer from "./container/Item/ItemDetailContainer"
 import Cart from "./components/Cart/Cart.jsx"
 import Componente404 from "./components/Componente404/Componente404"
 import CartContextProv from "./context/cartContext"
+import Footer from './components/Footer/Footer'
 
 const ItemListContainer = lazy (() => import ('./container/List/ItemListContainer')) //Const que solo lo importa cuando lo uso
 function App() { //Componente contenedor
@@ -16,7 +18,7 @@ function App() { //Componente contenedor
       <BrowserRouter>
       <CartContextProv>
         <div className="App">
-          <NavBar/>          
+          <NavBar/> 
           <Routes>
               <Route path="/" element={ <ItemListContainer/>}/> 
               <Route path="/categoria/:id" element={ <ItemListContainer/>}/> 
@@ -26,10 +28,12 @@ function App() { //Componente contenedor
               <Route path="/*" element={ <Navigate to='NotFound'/> }/> 
               <Route path="/cart" element={ <Cart/>}/> 
           </Routes>
+          <Footer/> 
         </div>
       </CartContextProv>
       </BrowserRouter>
     </Suspense>
+    
   );
 }
 

@@ -21,6 +21,8 @@ const Cart = () => {
         </div>
       </div>
     );
+
+    
     return (
       <div className="cart">
         {cart.length === 0 ? (
@@ -31,7 +33,36 @@ const Cart = () => {
             <Checkout />
           </div>
         )}
+         <div>
+      {cartList.map(prod => 
+      <div>
+        <ListGroup className="warning" key= {prod.id} as="ol" >
+          <ListGroup.Item
+            as="li"
+            className="d-flex justify-content-between align-items-start warning">
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">
+                <h1>{prod.title}</h1>
+                <h3>{prod.description}</h3>
+              </div>
+              <h3>Precio:{`$${(prod.price * prod.cantidad)}.-`}</h3>
+            </div>
+            <Badge bg="primary" pill>
+              <div className='qtyOfItems'>
+                <h2>Unidades: {prod.cantidad}</h2>
+                <Button className='botonEliminar' onClick={()=>removeItems(prod.id)}>Eliminar</Button>
+              </div>
+            </Badge>
+          </ListGroup.Item>
+        </ListGroup>
+      </div>)}
+      <div>
+        <LegendsInCart/>
       </div>
+      <EmptyCartButton/><br /><br />
+      <Button className='btn warning' onClick={createOrder}>Crear Orden</Button>
+    </div>
+  </div>
     );
   };
 

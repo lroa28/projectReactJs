@@ -1,18 +1,17 @@
 import { useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
-import "../../App.css"
+//import "../../App.css"
 //import  GetFetch  from "../../helpers/GetFetch.js"
 import  ItemList  from "../../container/List/ItemList.jsx"
-import  ItemCount  from "../../container/Item/ItemCount.jsx"
+//import  ItemCount  from "../../container/Item/ItemCount.jsx"
 //import * as firestore from 'firebase/firestore'
-import { collection, getDocs, getFirestore, query, where, limit} from 'firebase/firestore' //importarmos libreria de Firestore
+import { collection, getDocs, getFirestore, query, where, limit } from 'firebase/firestore' //importarmos libreria de Firestore
 
 const ItemListContainer = () => {
    const saludo = "Welcome e-bags _luk_c";
-   const [ clothes, setClothes] = useState([ ]); //Hook Para guardar los datos de manera persistente
-   const [ bool, setBoolean] = useState(true); //Hook Para guardar los datos de manera persistente
-    //console.log(task)
-    const { id } = useParams()
+   const [ clothes, setClothes] = useState([]); //Hook para guardar los datos de manera persistente
+   const [ bool, setBoolean] = useState(true);  //Hook para guardar los datos de manera persistente
+   const { id } = useParams()
 
     //useEffect(() => {
     //if (id) {
@@ -47,23 +46,29 @@ const ItemListContainer = () => {
 
     // traer productos filtrados por tipo
     useEffect(()=> {
+        console.log(id)
         const db = getFirestore() //usamos nuestra base de datos, es distinta a la fx getFirestoreApp, inicializa y trae las APIKey
-        const queryCollection =  collection(db, 'items' ) //traemos todos los items, usa 2 parametros
-        const queryFilter = query(queryCollection, 
-            where('tipo','==','buzo'), //recibe 3 parametros
-            where('precio','>=', 1000),
-            limit(1) //del filtro me trae uno solo
-        )
-        getDocs(queryFilter) // es el array
-        .then(resp => setClothes( resp.docs.map(items =>( {id: items.id, ...items.data()}) ) ) )
-        .catch(err => console.log(err))
-        .finally(()=> setBoolean(false))   
+        //const queryCollection =  collection(db, 'items' ) //traemos todos los items, usa 2 parametros
+        //const queryFilter = query(queryCollection, 
+        //    where('tipo','==','buzo'), //recibe 3 parametros
+        //    where('precio','>=', 1000),
+        //    limit(1) //del filtro me trae uno solo
+        //)
+        //const queryFilter = id ? query(queryCollection, where('tipo','==', id), limit(3)) : queryCollection
+        const queryCollection =  !id 
+                            ? 
+                                collection (db, 'items')
+                            :  
+                                query (collection(db, 'items' ), 
+                                    where('tipo','==','buzo'),
+                                    limit(1) //del filtro me trae uno solo 
+                                    //orderBy("tipo", "desc")                                   
+                                )         
+        getDocs(queryCollection) // es el array
+            .then (resp => setClothes( resp.docs.map(items =>( {id: items.id, ...items.data() }))))
+            .catch (err => console.log(err))
+            .finally (()=> setBoolean(false))   
     }, [id])
-
-
-  const onAdd = (cant) => {
-    console.log(cant)
-}
 
   if (bool) {
       return (
@@ -77,8 +82,7 @@ const ItemListContainer = () => {
                   <p> {saludo} </p>
               </div>
               <div className="flex-container-card py-10">
-                  <ItemList clothes={clothes} />
-                  <ItemCount initial={1} stock={10} onAdd= { onAdd } />
+                  <ItemList clothes = {clothes}/>
               </div>
           </div>
       );
@@ -87,3 +91,5 @@ const ItemListContainer = () => {
 }
 
 export default ItemListContainer
+
+//<ItemCount initial={1} stock={10} onAdd= {onAdd}/> //en clase no lo agregaron acá
